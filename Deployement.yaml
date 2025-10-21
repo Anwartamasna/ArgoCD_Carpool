@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carpool-app
+  namespace: carpool
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: carpool
+  template:
+    metadata:
+      labels:
+        app: carpool
+    spec:
+      containers:
+      - name: carpool
+        image: yassiramraoui/management-carpooling-services:latest
+        ports:
+        - containerPort: 8080
